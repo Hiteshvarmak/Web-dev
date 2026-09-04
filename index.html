@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ChatClone</title>
+<meta name="description" content="A ChatGPT-style AI chat interface clone." />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <button class="new-chat-btn" id="newChatBtn">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          New chat
+        </button>
+        <button class="icon-btn sidebar-toggle" id="sidebarToggle" title="Toggle sidebar">
+          <svg viewBox="0 0 24 24" width="18" height="18"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6" fill="none"/><line x1="9.5" y1="4" x2="9.5" y2="20" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+      </div>
+
+      <div class="chat-list" id="chatList"></div>
+
+      <div class="sidebar-bottom">
+        <div class="user-chip">
+          <div class="avatar">U</div>
+          <span>My Account</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="mobileSidebarBtn" title="Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="model-name">ChatClone <span class="badge">demo</span></div>
+        <button class="icon-btn theme-toggle" id="themeToggle" title="Toggle theme">
+          <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.6" y1="4.6" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.4" y2="4.6"/></g></svg>
+        </button>
+      </header>
+
+      <div class="chat-area" id="chatArea">
+        <div class="welcome" id="welcome">
+          <h1>ChatClone</h1>
+          <p class="sub">A ChatGPT-style interface, built for the web.</p>
+          <div class="suggestions" id="suggestions">
+            <button class="suggestion-card" data-prompt="Give me 5 ideas for a weekend side project">
+              <strong>Brainstorm</strong>
+              <span>ideas for a weekend side project</span>
+            </button>
+            <button class="suggestion-card" data-prompt="Explain how promises work in JavaScript, simply">
+              <strong>Explain</strong>
+              <span>how promises work in JavaScript</span>
+            </button>
+            <button class="suggestion-card" data-prompt="Write a short poem about the ocean at night">
+              <strong>Write</strong>
+              <span>a short poem about the ocean at night</span>
+            </button>
+            <button class="suggestion-card" data-prompt="Help me plan a simple weekly workout routine">
+              <strong>Plan</strong>
+              <span>a simple weekly workout routine</span>
+            </button>
+          </div>
+        </div>
+        <div class="messages" id="messages"></div>
+      </div>
+
+      <div class="composer-wrap">
+        <form class="composer" id="composerForm">
+          <textarea
+            id="promptInput"
+            class="composer-input"
+            placeholder="Message ChatClone..."
+            rows="1"
+            autofocus
+          ></textarea>
+          <button type="submit" class="send-btn" id="sendBtn" disabled title="Send">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 4l7 7h-4v9h-6v-9H5z"/></svg>
+          </button>
+        </form>
+        <p class="disclaimer">ChatClone is a UI demo and may produce inaccurate or generic responses.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
